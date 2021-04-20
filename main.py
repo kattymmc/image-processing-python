@@ -24,6 +24,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+@app.get('/')
+async def bienvenido():
+    return "Bienvenido al sistema para procesar imagenes"
 
 @app.post('/api/procesar')
 async def predict_image(file: UploadFile = File(...)):
